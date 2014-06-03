@@ -1,0 +1,33 @@
+<h1>Full route list</h1>
+
+<% all_routes = Route.read %>
+<% all_airlines = Airline.read %>
+<% all_cities = City.read %>
+
+<a href="add">Add new route</a>
+<hr>
+
+<table border="1" >
+  <thead>
+    <tr>
+      <th>ID(debug use only)</th>
+      <th>Airline</th>
+      <th>Code</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th>Manage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% all_routes.each do |routes| %>
+    <tr>
+      <td><%= routes.id %></td>
+      <td><%= all_airlines.read(routes.airline_id).name %></td>
+      <td><%= all_airlines.read(routes.airline_id).iata %> <%= routes.code %></td>
+      <td><%= all_cities.read(routes.depart_city_id).name %></td>
+      <td><%= all_cities.read(routes.arrival_city_id).name %></td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Edit","/routes/edit/#{routes.id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Delete","/routes/#{routes.id}","method" => "delete" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

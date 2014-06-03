@@ -1,0 +1,20 @@
+<h1>Add new route</h1>
+
+<%= form_tag "/routes", "method" => "post"  %>
+
+  <%= label_tag "airline_id", "What is the airline?" %>
+  <%= select_tag "airline_id",options_from_collection_for_select(Airline.read.order("id"),"id","name") %>
+  <br>
+
+  <%= label_tag "code", "What is the flight code?(digits only)" %>
+  <%= text_field_tag "code","" %>
+  <br>
+  <%= label_tag "depart", "What is the departure city?" %>
+  <%= select_tag "depart",options_from_collection_for_select(City.read.order("id"),"id","name",1) %>
+  <br>
+  <%= label_tag "arrival", "What is the arrival city?" %>
+  <%= select_tag "arrival",options_from_collection_for_select(City.read.order("id"),"id","name",2) %>
+  <br>
+  <%= submit_tag "Add This Flight" %> or <%= link_to "Cancel", "/" %>
+
+</form>

@@ -1,3 +1,27 @@
+User:
+  - username: string
+  - password: string
+  - email: string
+
+Route:
+  - airline_id: integer
+  - code: integer
+  - depart_city_id: integer
+  - arrival_city_id: integer
+
+City:
+  - name: string
+
+Airline:
+  - iata: string
+  - name: string
+  - base: string
+
+Favorite:
+  - user_id: integer
+  - route_id: integer
+  - status: boolean
+
 # Example table for a typical Book model.
 #
 # Book:

@@ -1,0 +1,25 @@
+<% route = Route.find_by(:id => params["id"]) %>
+
+<h1>Edit existing route</h1>
+<p>
+You are editing ROUTE ID: <b><%= route.id %></b>
+<p>
+
+<%= form_tag "/routes/#{route.id}", "method" => "patch"  %>
+
+  <%= label_tag "airline_id", "Select new airline?" %>
+  <%= select_tag "airline_id",options_from_collection_for_select(Airline.read.order("id"),"id","name",route.airline_id) %>
+  <br>
+
+  <%= label_tag "code", "What is new flight code?(digits only)" %>
+  <%= text_field_tag "code",route.code %>
+  <br>
+  <%= label_tag "depart", "What is the departure city?" %>
+  <%= select_tag "depart",options_from_collection_for_select(City.read.order("id"),"id","name",route.depart_city_id) %>
+  <br>
+  <%= label_tag "arrival", "What is the arrival city?" %>
+  <%= select_tag "arrival",options_from_collection_for_select(City.read.order("id"),"id","name",route.arrival_city_id) %>
+  <br>
+  <%= submit_tag "Submit the edits" %> or <%= link_to "Cancel", "/" %>
+
+</form>
