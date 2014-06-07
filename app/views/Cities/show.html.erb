@@ -1,0 +1,19 @@
+<% city = City.find_by(:id => params["id"]) %>
+
+<h1>Airport map</h1>
+
+<b>IATA code: <%= city.name %></b>
+
+<br>
+<br>
+
+<% bigx = city.x_axis/100 %>
+<% smallx = city.x_axis-city.x_axis/100*100 %>
+<% bigy = -city.y_axis/100 %>
+<% smally = -city.y_axis-(-1*city.y_axis/100*100) %>
+
+<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= bigx %>.<%= smallx %>,-<%= bigy %>.<%= smally %>&zoom=12&size=400x400&sensor=false">
+
+<br>
+
+<%= link_to "Return", "/" %>

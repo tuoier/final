@@ -4,6 +4,13 @@
 <% all_airlines = Airline.read %>
 <% all_cities = City.read %>
 
+<% user = User.find_by("id" => cookies["user_id"]) %>
+  <% if user.present? %>
+    <b>Welcome, <%= user.username %>!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Sign Out", '/logout' %></b>
+  <% else %>
+    <b>Sorry, you haven't login yet! Please </b><%= link_to "Sign up","adduser" %>&nbsp;or <%= link_to "Sign in","login" %>!
+<% end %>
+<hr>
 <a href="add">Add new route</a>
 <hr>
 
@@ -24,8 +31,8 @@
       <td><%= routes.id %></td>
       <td><%= all_airlines.read(routes.airline_id).name %></td>
       <td><%= all_airlines.read(routes.airline_id).iata %> <%= routes.code %></td>
-      <td><%= all_cities.read(routes.depart_city_id).name %></td>
-      <td><%= all_cities.read(routes.arrival_city_id).name %></td>
+      <td><a href="/cities/<%= routes.depart_city_id %>"><%= all_cities.read(routes.depart_city_id).name %></a></td>
+      <td><a href="/cities/<%= routes.arrival_city_id %>"><%= all_cities.read(routes.arrival_city_id).name %></a></td>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Edit","/routes/edit/#{routes.id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Delete","/routes/#{routes.id}","method" => "delete" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     </tr>
     <% end %>

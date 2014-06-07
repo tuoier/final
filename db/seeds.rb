@@ -5,12 +5,12 @@ User.create("username" => "UserC", "password" => "123456")
 User.create("username" => "UserD", "password" => "123456")
 
 City.delete_all
-City.create("name" => "ORD")
-City.create("name" => "JFK")
-City.create("name" => "LGA")
-City.create("name" => "DTW")
-City.create("name" => "DFW")
-City.create("name" => "SFO")
+City.create("name" => "ORD", "x_axis" => "4198", "y_axis" => "-8790")
+City.create("name" => "JFK", "x_axis" => "4065", "y_axis" => "-7378")
+City.create("name" => "LGA", "x_axis" => "4078", "y_axis" => "-7387")
+City.create("name" => "DTW", "x_axis" => "4222", "y_axis" => "-8336")
+City.create("name" => "DFW", "x_axis" => "3290", "y_axis" => "-9704")
+City.create("name" => "SFO", "x_axis" => "3762", "y_axis" => "-12238")
 
 Airline.delete_all
 Airline.create("iata" => "UA", "name" => "United Airline", "base" => "ORD")

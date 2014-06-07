@@ -11,6 +11,8 @@ Route:
 
 City:
   - name: string
+  - x_axis: integer
+  - y_axis: integer
 
 Airline:
   - iata: string

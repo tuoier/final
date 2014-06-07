@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603055835) do
+ActiveRecord::Schema.define(version: 20140607054456) do
 
   create_table "airlines", force: true do |t|
     t.string "iata"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 20140603055835) do
   end
 
   create_table "cities", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "x_axis"
+    t.integer "y_axis"
   end
 
   create_table "favorites", force: true do |t|

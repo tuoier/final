@@ -1,0 +1,19 @@
+<h1>Register New User</h1>
+
+<%= form_tag "/users", "method" => "post"  %>
+
+  <%= label_tag "username", "Type your username (no space):" %>
+  <%= text_field_tag "username","" %>
+  <br>
+  <%= label_tag "password", "Type your password:" %>
+  <%= password_field_tag "password","" %>
+  <br>
+  <%= label_tag "password_confirm", "Confirm your password:" %>
+  <%= password_field_tag "password_confirm","" %>
+  <br>
+  <%= label_tag "email", "What's your email address?" %>
+  <%= text_field_tag "email","" %>
+  <br>
+  <%= submit_tag "Register as new user" %> or <%= link_to "Cancel", "/" %>
+
+</form>

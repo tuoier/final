@@ -1,0 +1,18 @@
+<h1>Sign In</h1>
+
+<%= form_tag "/authenticate", "method" => "post"  %>
+
+  <%= label_tag "username", "Username:" %>
+  <%= text_field_tag "username","" %>
+  <br>
+  <%= label_tag "password", "Password:" %>
+  <%= password_field_tag "password","" %>
+  <br>
+
+  <%= submit_tag "Login into system" %> or <%= link_to "Cancel", "/" %>
+
+  <br>
+  <% if cookies["message_error"].present? %>
+    <%= cookies["message_error"] %>
+  <% end %>
+</form>
